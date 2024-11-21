@@ -24,8 +24,7 @@ window.viewPastel = async (id) => {
       <div class="col">
         <h3>${pastel.name}</h3>
         <p>${pastel.description}</p>
-        <p>${pastel.price}</p>
-        <p>Precio: ${product.price}</p>
+        <p>Precio: ${pastel.price}</p>
         <button class="btn btn-warning" onclick="enableEdit(${pastel.id})">Editar</button>
         <button class="btn btn-danger" onclick="deletePastel(${pastel.id})">Eliminar</button>
       </div>
@@ -37,7 +36,7 @@ window.viewPastel = async (id) => {
 window.enableEdit = async (id) => {
   const pastel = await getPastelbyID(id);
   const editForm = `
-    <div class="eow gap-3">
+    <div class="row gap-3">
       <imput type="text" id="name" value="${pastel.name}">
       <textarea id="description">${pastel.description}</textarea>
       <input type="number" id="price" value=${pastel.price}">
