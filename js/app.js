@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async() => {
     const pastel = await getPastel();
     pastelList.innerHTML = pastel.map(pastel => `
           <div class="col-xs-12 col-sm-6 col-md-3 card">
+            <img class="card-img-top" src="${pastel.imgUrl}">
             <div class="card-body d-flex flex-column justify-content-end">
               <h5 class="card-title">${pastel.name}</h5>
               <p class="card-text">${pastel.price}</p> 
@@ -22,6 +23,7 @@ window.viewPastel = async (id) => {
     
     const pastelDetails = `
       <div class="col">
+        <img class="img-fluid" src="${pastel.imgUrl}">
         <h3>${pastel.name}</h3>
         <p>${pastel.description}</p>
         <p>Precio: ${pastel.price}</p>
@@ -40,6 +42,7 @@ window.enableEdit = async (id) => {
       <imput type="text" id="name" value="${pastel.name}">
       <textarea id="description">${pastel.description}</textarea>
       <input type="number" id="price" value=${pastel.price}">
+      <input type="text" id="imgUrl" value="${pastel.imgUrl}">
       <button class="btn btn-success" onclick="saveEdit(${id})">Guardar</button>
     </div>  
     `;
@@ -52,6 +55,7 @@ window.saveEdit = async (id) => {
     name: document.getElementById("name").value,
     description: document.getElementById("description").value,
     price: parseFloat(document.getElementById("price").value),
+    imgUrl: document.getElementById('imgUrl').value
 
   };
   await updatePastel(id, pastelUpdate);

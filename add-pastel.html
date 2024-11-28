@@ -55,6 +55,12 @@
           <input type="number" class="form-control" id="price" placeholder="Precio del Pastel" required>
         </div>
 
+        <div class="mb-3">
+          <label for="imgUrl" class="form-label">Imagen del Producto</label>
+          <input type="text" class="form-control" id="imgUrl" placeholder="Imagen del producto" required>
+        </div>
+  
+
         <button type="submit"  class="btn btn-success">Guardar</button>
       </form>
     </div>
@@ -73,6 +79,7 @@
       name: document.getElementById('name').value,
       description: document.getElementById('description').value,
       price: parseFloat(document.getElementById('price').value),
+      imgUrl: document.getElementById('imgUrl').value
       
     };
     await addPastel(newPastel);
